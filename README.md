@@ -28,7 +28,7 @@ Connection: **GoPro --HDMI--> Elgato HD60 X --USB 3.0--> PC**
 
 ```bash
 cd ~/colcon_ws/src
-git clone https://github.com/kingchou007/gopro_ros2.git
+git clone https://github.com/Robot-Dexterity-Lab/gopro_ros2.git
 
 pip install opencv-python numpy h5py pandas scipy tqdm
 
