@@ -7,7 +7,20 @@ Stream GoPro video as ROS2 `CompressedImage` via USB capture card.
 - GoPro (Hero 9+) with [GoPro Labs firmware](https://gopro.com/en/us/info/gopro-labs) — scan QR code in `asset/` for clean HDMI output
 - [Elgato HD60 X](https://www.amazon.com/dp/B09V1KJ3J4) capture card (USB 3.0)
 
-## Install
+## Docker (recommended)
+
+```bash
+git clone https://github.com/Robot-Dexterity-Lab/gopro_ros2.git
+cd gopro_ros2
+docker build -t gopro_ros2 .
+docker run --rm --privileged --network=host -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev:/dev \
+  gopro_ros2 bash -c "source /ros2_ws/install/setup.bash && ros2 run gopro_ros2 gopro_stream"
+```
+
+Also works with VS Code Dev Containers — just open the repo and reopen in container.
+
+## Native Install
 
 ```bash
 cd ~/colcon_ws/src

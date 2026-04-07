@@ -1,0 +1,22 @@
+{
+  "name": "gopro_ros2",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
+  "runArgs": [
+    "--privileged",
+    "--network=host",
+    "-e", "DISPLAY=${localEnv:DISPLAY}",
+    "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
+    "-v", "/dev:/dev"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-iot.vscode-ros"
+      ]
+    }
+  },
+  "postStartCommand": "source /ros2_ws/install/setup.bash"
+}
