@@ -1,4 +1,5 @@
-FROM ros:humble
+ARG ROS_DISTRO=humble
+FROM ros:${ROS_DISTRO}
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -19,11 +20,12 @@ WORKDIR /ros2_ws/src/gopro_ros2
 COPY . .
 
 # Build
+ARG ROS_DISTRO=humble
 WORKDIR /ros2_ws
-RUN /bin/bash -c "source /opt/ros/humble/setup.bash && colcon build --packages-select gopro_ros2"
+RUN /bin/bash -c "source /opt/ros/${ROS_DISTRO}/setup.bash && colcon build --packages-select gopro_ros2"
 
 # Source workspace on entry
-RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc && \
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /root/.bashrc && \
     echo "source /ros2_ws/install/setup.bash" >> /root/.bashrc
 
 CMD ["/bin/bash"]

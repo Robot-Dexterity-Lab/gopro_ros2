@@ -1,7 +1,10 @@
 {
   "name": "gopro_ros2",
   "build": {
-    "dockerfile": "../Dockerfile"
+    "dockerfile": "../Dockerfile",
+    "args": {
+      "ROS_DISTRO": "humble"
+    }
   },
   "runArgs": [
     "--privileged",
