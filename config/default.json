@@ -1,0 +1,41 @@
+{
+  "device_settings": {
+    "robot_type": "XARM6",
+    "data_dir": "./",
+    "device": "cpu"
+  },
+  "task_config": {
+    "episode_len": 180,
+    "state_dim": 7,
+    "action_dim": 7,
+    "cam_width": 1920,
+    "cam_height": 1080,
+    "camera_names": ["front"],
+    "camera_port": 0,
+    "ros": {
+      "video_topic": "/gopro/image_raw/compressed",
+      "ee_pose_topic": "/robot/ee_pose",
+      "target_action_topic": "/robot/target_action",
+      "queue_size": 1000
+    }
+  },
+  "data_process_config": {
+    "input_dir": "./dataset/test",
+    "output_tcp_dir": "./dataset/test_tcp",
+    "base_position": {
+      "x": 0.35784787,
+      "y": -0.10271673,
+      "z": 0.48104339
+    },
+    "base_orientation": {
+      "roll": 173.26390927597197,
+      "pitch": -35.4663337092358,
+      "yaw": 0.5906086015158023
+    },
+    "offset": {
+      "x": 0.07734,
+      "y": 0.04123,
+      "z": 0.07894
+    }
+  }
+}
